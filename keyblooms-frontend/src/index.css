@@ -1,0 +1,216 @@
+
+@import "tailwindcss";
+
+
+@theme {
+  /* Fondo base de pergamino lavado */
+  --color-luna-bg: #f3edd7;        
+
+  /* Colores del Invernadero Nocturno */
+  --color-luna-green: #1a3c22;     /* Verde alquimia oscuro */
+  --color-luna-burgundy: #5c1d24;  /* Vinotinto terciopelo profundo (Mágico y antiguo) */
+  --color-luna-blue: #1e3d59;      /* Azul noche estrellado de Ravenclaw */
+  --color-luna-plum: #8c3b53;      /* Rosa ciruela místico / Gafas de Luna */
+  --color-luna-mustard: #d4a345;   /* Amarillo estrellas / Dirigible plum */
+  --color-luna-card: #eae0c2;      /* Crema pergamino denso para las tarjetas */
+}
+
+body {
+  background-image: url('https://i.pinimg.com/736x/68/5f/d2/685fd2d4cff33fe3d9b3b1d0aa253c25.jpg'); 
+  
+  background-position: center;    
+  
+  background-attachment: fixed;   
+  
+  font-family: 'IM Fell English', serif;
+  color: #1a1a1a;
+  font-size: 1.15rem;
+}
+
+/* Botones del Menú Mágico de Navegación */
+@utility boho-nav-btn {
+  font-family: 'Griffy', cursive !important;
+  color: var(--color-luna-burgundy);
+  background-color: var(--color-luna-card);
+  border: 2px solid rgba(92, 29, 36, 0.2);
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px; 
+  font-size: 1.3rem;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-luna-burgundy);
+    color: var(--color-luna-mustard);
+    border-color: var(--color-luna-mustard);
+    transform: translateY(-2px);
+  }
+  
+  &.active {
+    background-color: var(--color-luna-burgundy);
+    color: var(--color-luna-mustard);
+    border-color: var(--color-luna-mustard);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+
+@utility boho-card {
+  background-color: var(--color-luna-card);
+  border: 2px solid rgba(92, 29, 36, 0.15); 
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  margin: 1rem;
+  box-shadow: 4px 4px 18px rgba(30, 61, 89, 0.06); 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    box-shadow: 8px 12px 25px rgba(140, 59, 83, 0.15); 
+    transform: scale(1.03) rotate(0.5deg); 
+    border-color: var(--color-luna-mustard); 
+  }
+}
+
+@utility boho-title {
+  font-family: 'Griffy', cursive !important;
+  color: var(--color-luna-burgundy); 
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  
+  text-shadow: 
+    -1px -1px 0px var(--color-luna-mustard),  
+     1px -1px 0px var(--color-luna-mustard),
+    -1px  1px 0px var(--color-luna-mustard),
+     1px  1px 0px var(--color-luna-mustard),
+     0px  0px 14px rgba(212, 163, 69, 0.75); 
+}
+
+@utility boho-badge {
+  font-family: 'IM Fell English', serif !important;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-luna-blue); 
+  font-weight: bold;
+}
+
+@utility boho-btn-delete {
+  font-family: 'Griffy', cursive !important;
+  background-color: var(--color-luna-plum); 
+  color: #fff6e0;
+  padding: 0.5rem 1.4rem;
+  border-radius: 0.75rem;
+  font-size: 1.25rem;
+  box-shadow: 2px 2px 6px rgba(92, 29, 36, 0.15);
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-luna-burgundy); 
+    transform: translateY(-1px);
+  }
+}
+
+@utility boho-btn-edit {
+  font-family: 'IM Fell English', serif !important;
+  font-style: italic;
+  color: var(--color-luna-green);
+  border: 2px solid var(--color-luna-green);
+  background-color: transparent;
+  padding: 0.4rem 1.1rem;
+  border-radius: 0.75rem;
+  font-size: 1.05rem;
+  font-weight: bold;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(26, 60, 34, 0.08);
+    color: var(--color-luna-burgundy);
+    border-color: var(--color-luna-burgundy);
+  }
+}
+@utility boho-form {
+  background-color: var(--color-luna-card);
+  border: 3px double var(--color-luna-burgundy); 
+  border-radius: 1.5rem;
+  padding: 2rem;
+  
+  max-width: 450px;      
+  width: 90%;            
+  margin: 3rem auto;      
+  box-shadow: 0 10px 25px -5px rgba(26, 60, 34, 0.3);
+}
+
+
+@utility boho-form-label {
+  font-family: 'IM Fell English', serif !important;
+  font-weight: bold;
+  font-style: italic;
+  color: var(--color-luna-burgundy);
+  display: block;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+@utility boho-form-input {
+  width: 100%;
+  background-color: #f7f3e3; 
+  border: 1px solid rgba(26, 60, 34, 0.3);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-family: 'IM Fell English', serif !important;
+  color: #1a1a1a;
+  outline: none;
+  transition: all 0.2s;
+
+  &:focus {
+    border-color: var(--color-luna-mustard);
+    box-shadow: 0 0 0 2px rgba(212, 163, 69, 0.2);
+  }
+}
+
+@utility boho-btn-save {
+  font-family: 'Griffy', cursive !important;
+  background-color: var(--color-luna-green);
+  color: #fff6e0;
+  padding: 0.6rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1.3rem;
+  width: 100%;
+  margin-top: 1.25rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #122b18;
+    transform: translateY(-1px);
+  }
+}
+
+/* Barra de búsqueda estilo pergamino de adivinación */
+@utility boho-search-input {
+  width: 100%;
+  max-width: 24rem; /* Un ancho elegante centrado */
+  background-color: var(--color-luna-card);
+  border: 2px solid rgba(92, 29, 36, 0.3); /* Contorno vinotinto sutil */
+  border-radius: 9999px; /* Ovalado como tus botones de navegación */
+  padding: 0.6rem 1.5rem;
+  font-family: 'IM Fell English', serif !important;
+  color: #1a1a1a;
+  font-size: 1.2rem;
+  font-style: italic;
+  outline: none;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+
+  &:focus {
+    border-color: var(--color-luna-mustard);
+    box-shadow: 0 0 12px rgba(212, 163, 69, 0.3);
+    background-color: #f7f3e3; /* Brilla ligeramente al escribir */
+  }
+}
+
