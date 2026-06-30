@@ -69,8 +69,72 @@ public class DataInitializer implements CommandLineRunner {
             spiderPlant.setQuantity(4);
             spiderPlant.setImgLink("https://www.thespruce.com/thmb/UjlXNIgQM-WV4ivm-0nveevtPwc=/3000x0/filters:no_upscale():max_bytes(150000):strip_icc()/spider-plants-chlorophytum-definition-1902773-01b-b3f60dce30a64c399d52b5538417cc7d.jpg");
 
-            plantRepository.saveAll(List.of(pothos, fern, monstera, orchid, spiderPlant));
-            log.info("5 sample plants successfully loaded into KeyBlooms inventory!");
+                Plant snakePlant = new Plant();
+                snakePlant.setName("Snake Plant");
+                snakePlant.setCategory(PlantCategory.FOLIAGE_INTERIOR);
+                snakePlant.setWateringInterval(14);
+                snakePlant.setDescription("Low-maintenance indoor plant with upright sword-like leaves.");
+                snakePlant.setLight(LightRequirement.INDIRECT_BRIGHT);
+                snakePlant.setQuantity(3);
+                snakePlant.setImgLink("https://cdn.mos.cms.futurecdn.net/FHwTzjwh5yHHPgSupKhavY.jpg");
+
+                Plant peaceLily = new Plant();
+                peaceLily.setName("Peace Lily");
+                peaceLily.setCategory(PlantCategory.FLOWERING);
+                peaceLily.setWateringInterval(7);
+                peaceLily.setDescription("Elegant indoor plant with glossy leaves and white flowers.");
+                peaceLily.setLight(LightRequirement.LOW_LIGHT);
+                peaceLily.setQuantity(2);
+                peaceLily.setImgLink("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYnIPaq_oyp7mb-iIFbCKEOSvgGJP8WiOHcQ&s");
+
+                Plant ficus = new Plant();
+                ficus.setName("Ficus Elastica");
+                ficus.setCategory(PlantCategory.FOLIAGE_INTERIOR);
+                ficus.setWateringInterval(10);
+                ficus.setDescription("Rubber plant with thick, glossy dark green leaves.");
+                ficus.setLight(LightRequirement.INDIRECT_BRIGHT);
+                ficus.setQuantity(1);
+                ficus.setImgLink("https://viveroflorecer.com/cdn/shop/files/ficus-elastica-black-knight-709958.jpg?v=1749661258&width=1946");
+
+                Plant zzPlant = new Plant();
+                zzPlant.setName("ZZ Plant");
+                zzPlant.setCategory(PlantCategory.FOLIAGE_INTERIOR);
+                zzPlant.setWateringInterval(21);
+                zzPlant.setDescription("Drought-tolerant plant with shiny dark green foliage.");
+                zzPlant.setLight(LightRequirement.LOW_LIGHT);
+                zzPlant.setQuantity(4);
+                zzPlant.setImgLink("https://www.houseplant.co.uk/cdn/shop/articles/zzplants.webp?v=1709932857");
+
+                Plant aloe = new Plant();
+                aloe.setName("Aloe Vera");
+                aloe.setCategory(PlantCategory.SUCCULENT);
+                aloe.setWateringInterval(21);
+                aloe.setDescription("Succulent known for its medicinal gel-filled leaves.");
+                aloe.setLight(LightRequirement.DIRECT_SUN);
+                aloe.setQuantity(5);
+                aloe.setImgLink("https://media.v2.siweb.es/uploaded_thumb_big/af31b8ffd55e9bc92c93c04c7f3fdd12/aloe_hercules.jpeg");
+
+                Plant jade = new Plant();
+                jade.setName("Jade Plant");
+                jade.setCategory(PlantCategory.SUCCULENT);
+                jade.setWateringInterval(14);
+                jade.setDescription("Popular succulent with thick oval leaves and woody stems.");
+                jade.setLight(LightRequirement.DIRECT_SUN);
+                jade.setQuantity(2);
+                jade.setImgLink("https://content.elmueble.com/medio/2021/12/01/planta-de-jade_89d72781_1000x1000.jpeg");
+
+                Plant chineseMoneyPlant = new Plant();
+                chineseMoneyPlant.setName("Chinese Money Plant");
+                chineseMoneyPlant.setCategory(PlantCategory.FOLIAGE_INTERIOR);
+                chineseMoneyPlant.setWateringInterval(7);
+                chineseMoneyPlant.setDescription("Popular houseplant with distinctive round green leaves on long stems.");
+                chineseMoneyPlant.setLight(LightRequirement.INDIRECT_BRIGHT);
+                chineseMoneyPlant.setQuantity(2);
+                chineseMoneyPlant.setImgLink("https://www.gardenia.net/wp-content/uploads/2024/03/shutterstock_2431416235.jpg");
+
+                plantRepository.saveAll(List.of(pothos, fern, monstera, orchid, spiderPlant, snakePlant, peaceLily, ficus, jade, aloe, chineseMoneyPlant, zzPlant));
+
+                log.info("10 sample plants successfully loaded into KeyBlooms inventory!");
         }
     }
 }

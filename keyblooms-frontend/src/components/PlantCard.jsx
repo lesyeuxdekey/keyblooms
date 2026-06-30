@@ -3,16 +3,26 @@ function PlantCard({ plant, onDelete, onEdit }) {
     <div className="boho-card max-w-sm">
       
       <h3 className="boho-title text-3xl mb-1">{plant.name}</h3>
+
+      <p className="text-md mb-1">
+        <span className="text-luna-burgundy font-bold ml-1">{plant.description}</span>
+      </p>
+
+      <p className="text-md mb-1">
+        <span className="boho-badge">I have: </span> 
+        <span className="text-luna-burgundy font-bold ml-1">{plant.quantity} plants</span>
+      </p>
       
       <p className="text-md mb-1">
         <span className="boho-badge">Category:</span> 
-        <span className="text-luna-mustard font-bold ml-1">{plant.category}</span>
+        <span className="text-luna-burgundy font-bold ml-1">{plant.category}</span>
       </p>
 
-      <p className="text-md mb-4">
+      <p className="text-md mb-1">
         <span className="boho-badge">Water every:</span> 
-        <span className="text-luna-mustard font-bold ml-1">{plant.wateringInterval} days</span>
+        <span className="text-luna-burgundy font-bold ml-1">{plant.wateringInterval} days</span>
       </p>
+
 
       <img 
         alt={plant.name} 

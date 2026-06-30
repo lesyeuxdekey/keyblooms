@@ -1,8 +1,5 @@
 import { useState, useEffect, use } from 'react';
 import axios from 'axios';
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 import PlantCard from './components/PlantCard';
 import PlantForm from './components/PlantForm';
@@ -10,12 +7,13 @@ import PlantHero from './components/PlantHero';
 import PlantNav from './components/PlantNav';
 import PlantSearch from './components/PlantSearch';
 import PlantLogo from './components/PlantLogo';
+import PlantEditForm from './components/PlantEditForm';
 
 
 
 function App() {
 
-  const [view, setView] = useState("");
+  const [view, setView] = useState("hero");
 
   const[plantToEdit, setPlantToEdit] = useState(null);
 
@@ -59,6 +57,7 @@ function App() {
 
   const handleSelectPlant = (plant) => {
     setPlantToEdit(plant);
+    setView("edit");
   }
 
   const handleUpdatePlant = (updatedPlant) => {
@@ -68,6 +67,7 @@ function App() {
         setPlants(newList);
 
         setPlantToEdit(null);
+        setView("list");
         console.log("Plant updated successfully in H2 Database!");
       })
       .catch(error => {
@@ -79,12 +79,11 @@ function App() {
     <>
       <div className="min-h-screen pb-8">
     
-        {/* 🌟 LA BARRA SUPERIOR FIJA CON EL MENÚ A LA DERECHA */}
         <div className="bg-luna-card border-b border-magic-green/10 shadow-xs sticky top-0 z-50 w-full">
           
           <div className="w-full px-8 pt-8 flex flex-row justify-end items-center h-16 relative"> 
             
-            <PlantLogo onHome={() => setView("")}/>
+            <PlantLogo onHome={() => setView("hero")}/>
             
             <PlantNav currentView={view} onViewChange={setView} />
 
@@ -94,12 +93,11 @@ function App() {
 
         <div className="px-4 md:px-8">
 
-          <PlantHero></PlantHero>
+          {view === "hero" && (
+            <PlantHero></PlantHero>
+          )}
 
-          {view === "add" && (
-                <PlantForm onAddPlant={handleAddPlant} onEditPlant={handleUpdatePlant} plantData={plantToEdit} ></PlantForm>
-            )}
-            {view === "list" && (
+          {view === "list" && (
               <div className="flex flex-wrap justify-center gap-6">
               
               {plants.map(plant => (
@@ -112,16 +110,35 @@ function App() {
               ))}
 
             </div>
-            )}
+          )}
 
-            {view === "search" && (
+          {view === "edit" && plantToEdit && (
+            <div className="mt-10">
+              <h2 className="boho-title text-4xl text-center mb-4">Edit Plant</h2>
+              <PlantEditForm 
+                plant={plantToEdit}
+                handleDeletePlant={handleDeletePlant}
+                handleSelectPlant={handleSelectPlant}
+                handleUpdatePlant={handleUpdatePlant}
+              />
+            </div>          
+          )}
+
+          {view === "add" && (
+            <div>
+                <h2 className="boho-title text-4xl text-center mb-4 mt-10">Add a new plant</h2>
+                <PlantForm onAddPlant={handleAddPlant} onEditPlant={handleUpdatePlant} plantData={plantToEdit} ></PlantForm>
+            </div>
+          )}
+
+                
+          {view === "search" && (
               <PlantSearch 
                 plants={plants} 
                 onDelete={handleDeletePlant} 
                 onEdit={handleSelectPlant}  
               />
-
-            )}
+          )}
 
         </div>
 
