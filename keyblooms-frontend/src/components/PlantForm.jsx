@@ -15,7 +15,7 @@ function PlantForm({onAddPlant, onEditPlant, plantData}){
         console.log("Efecto activado con:", plantData);
         if(plantData){
             setName(plantData.name);
-            setWaterInt(plantData.wateringInterval); // Revisa que coincida con el nombre de tu variable
+            setWaterInt(plantData.wateringInterval); 
             setQuantity(plantData.quantity);
             setDescription(plantData.description);
             setCategory(plantData.category);
@@ -47,10 +47,7 @@ function PlantForm({onAddPlant, onEditPlant, plantData}){
 
     
     return (
-    // 1. Cambiamos el style={{...}} por tu nueva clase boho-form
     <form onSubmit={handleSubmit} className="boho-form">
-        {/* Usamos el título boho-title con tamaño intermedio */}
-        <h2 className="boho-title text-4xl text-center mb-4">Add a new plant</h2>
 
         <label htmlFor="name" className="boho-form-label">Name: </label>
         <input type="text" id="name" placeholder="e.g. Mandrake" className="boho-form-input" value={name} onChange={(e) => setName(e.target.value)} /> 
@@ -84,7 +81,6 @@ function PlantForm({onAddPlant, onEditPlant, plantData}){
         <label htmlFor="imgLink" className="boho-form-label">Image URL:</label>
         <input type="text" id="imgLink" placeholder="https://example.com" className="boho-form-input" value={imgLink} onChange={(e) => setImgLink(e.target.value)} />
 
-        {/* El botón de guardar con su clase herbolaria */}
         <button type="submit" className="boho-btn-save">Save Plant</button>
     </form>
 )

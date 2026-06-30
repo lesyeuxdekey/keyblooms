@@ -5,7 +5,6 @@ import PlantCard from "./PlantCard";
 function PlantSearch({  plants, onDelete, onEdit}) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // 1. Aquí se declara la constante (Revisa que el nombre use la P mayúscula)
   const filteredPlants = plants.filter((plant) => {
     if (searchTerm === "") {
     return false;
@@ -13,10 +12,9 @@ function PlantSearch({  plants, onDelete, onEdit}) {
     return plant.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
-  // 2. RECIÉN AQUÍ ABAJO EMPIEZA EL RETURN
   return (
     <div className="text-center animate-fade-in">
-      <h2 className="boho-title text-4xl mb-4">Divination Search Engine</h2>
+      <h2 className="boho-title text-4xl mb-6 mt-50">Divination Search Engine</h2>
       
       <input 
         type="text" 
